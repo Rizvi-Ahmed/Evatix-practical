@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:registration/screen/Forgot_Pass_screen.dart';
+import 'package:registration/screen/Reset_pass_screen.dart';
+import 'package:registration/screen/Reset_success_screen.dart';
+import './screen/Welcome_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +20,12 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomePage(),
+      routes: {
+        WelcomeScreen.routeName: (context) => WelcomeScreen(),
+        ResetPassScreen.routeName: (context) => ResetPassScreen(),
+        ForgotPassScreen.routeName: (context) => ForgotPassScreen(),
+        ResetSuccess.routeName: (context) => ResetSuccess(),
+      },
     );
   }
 }
@@ -85,7 +95,10 @@ class HomePage extends StatelessWidget {
                           fontSize: 20,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed(WelcomeScreen.routeName);
+                      },
                     )
                   ],
                 ),
